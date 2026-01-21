@@ -1,0 +1,847 @@
+/* ============================================
+   CORPORATIVO NV-F - MAIN STYLES
+   ============================================
+   
+   TABLE OF CONTENTS:
+   1. CSS Variables / Custom Properties
+   2. Reset & Base Styles
+   3. Typography
+   4. Layout & Containers
+   5. Buttons
+   6. Header & Navigation
+   7. Hero Section
+   8. Sections (General)
+   9. Nosotros Section
+   10. Acreditaciones Section
+   11. Servicios Section
+   12. Contacto Section
+   13. Footer
+   14. Utilities
+   15. Responsive Design
+   16. Animations (Add your own here!)
+   
+============================================ */
+
+
+/* ============================================
+   1. CSS VARIABLES / CUSTOM PROPERTIES
+   ============================================ */
+:root {
+    /* Colors - Green & White Theme */
+    --color-primary: #2E7D32;           /* Main green */
+    --color-primary-dark: #1B5E20;      /* Darker green */
+    --color-primary-light: #4CAF50;     /* Lighter green */
+    --color-primary-pale: #E8F5E9;      /* Very light green */
+    
+    --color-white: #FFFFFF;
+    --color-off-white: #F9FAFB;
+    --color-gray-100: #F3F4F6;
+    --color-gray-200: #E5E7EB;
+    --color-gray-300: #D1D5DB;
+    --color-gray-400: #9CA3AF;
+    --color-gray-500: #6B7280;
+    --color-gray-600: #4B5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1F2937;
+    --color-gray-900: #111827;
+    
+    /* Typography */
+    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-xs: 0.75rem;    /* 12px */
+    --font-size-sm: 0.875rem;   /* 14px */
+    --font-size-base: 1rem;     /* 16px */
+    --font-size-lg: 1.125rem;   /* 18px */
+    --font-size-xl: 1.25rem;    /* 20px */
+    --font-size-2xl: 1.5rem;    /* 24px */
+    --font-size-3xl: 1.875rem;  /* 30px */
+    --font-size-4xl: 2.25rem;   /* 36px */
+    --font-size-5xl: 3rem;      /* 48px */
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;      /* 4px */
+    --spacing-sm: 0.5rem;       /* 8px */
+    --spacing-md: 1rem;         /* 16px */
+    --spacing-lg: 1.5rem;       /* 24px */
+    --spacing-xl: 2rem;         /* 32px */
+    --spacing-2xl: 3rem;        /* 48px */
+    --spacing-3xl: 4rem;        /* 64px */
+    --spacing-4xl: 6rem;        /* 96px */
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;       /* 4px */
+    --radius-md: 0.5rem;        /* 8px */
+    --radius-lg: 1rem;          /* 16px */
+    --radius-xl: 1.5rem;        /* 24px */
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 300ms ease;
+    --transition-slow: 500ms ease;
+    
+    /* Layout */
+    --header-height: 80px;
+    --container-max-width: 1200px;
+}
+
+
+/* ============================================
+   2. RESET & BASE STYLES
+   ============================================ */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-gray-700);
+    background-color: var(--color-white);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+
+/* ============================================
+   3. TYPOGRAPHY
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-gray-900);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h1 { font-size: var(--font-size-5xl); }
+h2 { font-size: var(--font-size-4xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+.highlight {
+    color: var(--color-primary);
+}
+
+
+/* ============================================
+   4. LAYOUT & CONTAINERS
+   ============================================ */
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.section {
+    padding: var(--spacing-4xl) 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.section-title {
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: var(--radius-full);
+}
+
+.section-subtitle {
+    color: var(--color-gray-500);
+    font-size: var(--font-size-lg);
+    margin-top: var(--spacing-md);
+}
+
+
+/* ============================================
+   5. BUTTONS
+   ============================================ */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+
+/* ============================================
+   6. HEADER & NAVIGATION
+   ============================================ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+}
+
+.logo-text {
+    color: var(--color-gray-800);
+}
+
+.logo-highlight {
+    color: var(--color-primary);
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--color-gray-600);
+    transition: color var(--transition-fast);
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width var(--transition-base);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: var(--spacing-sm);
+}
+
+.menu-bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-gray-700);
+    border-radius: var(--radius-full);
+    transition: var(--transition-base);
+}
+
+
+/* ============================================
+   7. HERO SECTION
+   ============================================ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--color-primary-pale) 0%, var(--color-white) 100%);
+    padding-top: var(--header-height);
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-gray-600);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+/* ============================================
+   8. SECTIONS (GENERAL)
+   ============================================ */
+/* Alternating section backgrounds */
+.nosotros,
+.servicios {
+    background-color: var(--color-white);
+}
+
+.acreditaciones,
+.contacto {
+    background-color: var(--color-off-white);
+}
+
+
+/* ============================================
+   9. NOSOTROS SECTION
+   ============================================ */
+.nosotros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: start;
+}
+
+.nosotros-content h3 {
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+}
+
+.nosotros-cards {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.info-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--color-primary);
+}
+
+.info-card-icon {
+    margin-bottom: var(--spacing-md);
+}
+
+.info-card h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-gray-800);
+}
+
+.info-card p {
+    color: var(--color-gray-500);
+    margin-bottom: 0;
+    font-size: var(--font-size-sm);
+}
+
+
+/* ============================================
+   10. ACREDITACIONES SECTION
+   ============================================ */
+.acreditaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.acreditacion-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.acreditacion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.acreditacion-logo {
+    margin-bottom: var(--spacing-lg);
+}
+
+.acreditacion-card h4 {
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-base);
+}
+
+.acreditacion-card p {
+    color: var(--color-gray-500);
+    font-size: var(--font-size-sm);
+    margin-bottom: 0;
+}
+
+
+/* ============================================
+   11. SERVICIOS SECTION
+   ============================================ */
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.servicio-card {
+    background-color: var(--color-off-white);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    border: 1px solid var(--color-gray-200);
+}
+
+.servicio-card:hover {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary-light);
+}
+
+.servicio-icon {
+    margin-bottom: var(--spacing-lg);
+}
+
+.servicio-card h4 {
+    margin-bottom: var(--spacing-md);
+}
+
+.servicio-card p {
+    color: var(--color-gray-500);
+}
+
+.servicio-link {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.servicio-link:hover {
+    color: var(--color-primary-dark);
+}
+
+
+/* ============================================
+   12. CONTACTO SECTION
+   ============================================ */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+}
+
+.contacto-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.contacto-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+}
+
+.contacto-icon {
+    flex-shrink: 0;
+}
+
+.contacto-text h4 {
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-base);
+}
+
+.contacto-text p {
+    color: var(--color-gray-500);
+    margin-bottom: 0;
+}
+
+/* Contact Form */
+.contacto-form {
+    background-color: var(--color-white);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+    color: var(--color-gray-700);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-pale);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+
+/* ============================================
+   13. FOOTER
+   ============================================ */
+.footer {
+    background-color: var(--color-gray-900);
+    color: var(--color-gray-300);
+    padding: var(--spacing-3xl) 0 var(--spacing-xl);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--spacing-3xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.footer-brand .logo {
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-brand .logo-text {
+    color: var(--color-white);
+}
+
+.footer-brand p {
+    color: var(--color-gray-400);
+}
+
+.footer-links h4,
+.footer-social h4 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-base);
+}
+
+.footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.footer-links a {
+    color: var(--color-gray-400);
+    transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--color-primary-light);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-gray-800);
+    border-radius: var(--radius-md);
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.footer-bottom {
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-gray-800);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: var(--color-gray-500);
+    font-size: var(--font-size-sm);
+    margin-bottom: 0;
+}
+
+
+/* ============================================
+   14. UTILITIES
+   ============================================ */
+/* Icon Placeholders - Replace with real icons */
+.icon-placeholder {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-primary-pale);
+    border: 2px dashed var(--color-primary);
+    border-radius: var(--radius-md);
+}
+
+.icon-placeholder.small {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-placeholder {
+    display: block;
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-primary-pale);
+    border: 2px dashed var(--color-primary);
+    border-radius: var(--radius-md);
+    margin: 0 auto;
+}
+
+/* Text utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Display utilities */
+.hidden { display: none; }
+.block { display: block; }
+.flex { display: flex; }
+.grid { display: grid; }
+
+
+/* ============================================
+   15. RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .acreditaciones-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .footer-brand {
+        grid-column: span 2;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 70px;
+    }
+    
+    h1 { font-size: var(--font-size-3xl); }
+    h2 { font-size: var(--font-size-2xl); }
+    
+    .section {
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    /* Mobile Navigation */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background-color: var(--color-white);
+        box-shadow: var(--shadow-lg);
+        padding: var(--spacing-lg);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-base);
+    }
+    
+    .nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+    
+    /* Grids */
+    .nosotros-grid,
+    .servicios-grid,
+    .contacto-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .acreditaciones-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        grid-column: auto;
+    }
+    
+    .footer-brand .logo {
+        justify-content: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+
+/* ============================================
+   16. ANIMATIONS
+   ============================================
+   
+   Add your custom animations here!
+   
+   Examples:
+   
+   @keyframes fadeIn {
+       from { opacity: 0; }
+       to { opacity: 1; }
+   }
+   
+   @keyframes slideUp {
+       from {
+           opacity: 0;
+           transform: translateY(30px);
+       }
+       to {
+           opacity: 1;
+           transform: translateY(0);
+       }
+   }
+   
+   .animate-fade-in {
+       animation: fadeIn 0.5s ease forwards;
+   }
+   
+   .animate-slide-up {
+       animation: slideUp 0.6s ease forwards;
+   }
+   
+============================================ */
