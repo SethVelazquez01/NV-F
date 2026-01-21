@@ -9,7 +9,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
     
-    <!-- Google Fonts (optional - remove if not needed) -->
+    <!-- Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -47,11 +47,12 @@
     <main>
 
         <!-- ========== INICIO / HERO ========== -->
+        <div class="fondo"></div>
         <section class="section hero" id="inicio">
             <div class="container">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        Bienvenidos a <span class="highlight">Corporativo NV-F</span>
+                       <span class="highlight"> Bienvenidos a Corporativo NV-F</span>
                     </h1>
                     <p class="hero-subtitle">
                         Soluciones empresariales de calidad y confianza
@@ -63,57 +64,129 @@
                 </div>
             </div>
         </section>
+        
 
         <!-- ========== NOSOTROS ========== -->
-        <section class="section nosotros" id="nosotros">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Nosotros</h2>
-                    <p class="section-subtitle">Conoce más sobre nuestra empresa</p>
-                </div>
-                
-                <div class="nosotros-grid">
-                    <div class="nosotros-content">
-                        <h3>Nuestra Historia</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-                        <p>
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                            nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-                    
-                    <div class="nosotros-cards">
-                        <div class="info-card">
-                            <div class="info-card-icon">
-                                <!-- Add your icon here -->
-                                <span class="icon-placeholder"></span>
-                            </div>
-                            <h4>Misión</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-                        </div>
-                        
-                        <div class="info-card">
-                            <div class="info-card-icon">
-                                <span class="icon-placeholder"></span>
-                            </div>
-                            <h4>Visión</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-                        </div>
-                        
-                        <div class="info-card">
-                            <div class="info-card-icon">
-                                <span class="icon-placeholder"></span>
-                            </div>
-                            <h4>Valores</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
-                </div>
+    <section class="section nosotros" id="nosotros">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Nosotros</h2>
+      <p class="section-subtitle">Conoce más sobre nuestra empresa</p>
+    </div>
+
+    <!-- GRID GENERAL -->
+    <div class="nosotros-layout">
+
+      <!-- CARD GRANDE (ARRIBA) -->
+      <div class="nosotros-top">
+        <div class="card">
+          <p class="card-title">Nosotros</p>
+          <p class="small-desc">
+          Somos un equipo multidisciplinario enfocado en el cumplimiento normativo para el sector Hidrocarburos e Industrial brindamos servicios de calidad, tiempo y forma a nuestros clientes, siendo especialistas en la tramitología.
+          </p>
+          <div class="go-corner">
+            <div class="go-arrow"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Misión -->
+      <div class="nosotros-bottom">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <p class="title">Misión</p>
             </div>
-        </section>
+            <div class="flip-card-back">
+              <p class="title"></p>
+              <p>Realizar servicios de inspección, cumplimiento normativo, y de alta calidad para nuestros clientes, desde la perspectiva de mejora continua, confianza y precios justos.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visión -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <p class="title">Visión</p>
+            </div>
+            <div class="flip-card-back">
+              <p class="title"></p>
+              <p> Llegar a ser un referente en el sector, por la calidad y profesionalismo de nuestros servicios</p>
+                Ser la primera opción para nuestros clientes formando relaciones comerciales sostenibles y duraderas.</p>
+                Comunicarnos con nuestros clientes de manera abierta, directa y sincera, favoreciendo una total integración de nuestra actividad con la suya a medio-largo plazo.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Valores-->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <p class="title">Valores</p>
+            </div>
+            <div class="flip-card-back">
+                <ul>
+                    <li>Integridad</li>
+                    <li>Respeto</li>
+                    <li>Confianza</li>
+                    <li>Liderazgo</li>
+                    <li>Actitud de servicio</li>
+                    <li>Mejora continua</li>
+                </ul>
+            </div>
+          </div>
+        </div>       
+      </div>
+
+    <div class="section-header">
+      <h2 class="section-title">Nuestros clientes</h2>
+      <p class="section-subtitle">Conoce nuestros principales clientes</p>
+    </div>
+      <div class="radio-btns" role="radiogroup">
+
+  <div class="radio-btns__btn" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image one">
+    <img src="images/cliente1.png" alt="Image description">
+  </div>
+
+   <div class="radio-btns__btn" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image one">
+    <img src="images/cliente2.png" alt="Image description">
+  </div>
+
+   <div class="radio-btns__btn" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image one">
+    <img src="images/cliente3.png" alt="Image description">
+  </div>
+
+  <div class="radio-btns__btn" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image one">
+    <img src="images/Imagen4.png" alt="Image description">
+  </div>
+
+   <div class="radio-btns__btn" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image one">
+    <img src="images/Imagen5.png" alt="Image description">
+  </div>
+
+   <div class="radio-btns__btn" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image one">
+    <img src="images/Imagen6.png" alt="Image description">
+  </div>
+
+   <div class="radio-btns__btn" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image one">
+    <img src="images/Imagen7.png" alt="Image description">
+  </div>
+
+   <div class="radio-btns__btn" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image one">
+    <img src="images/Imagen8.png" alt="Image description">
+  </div>
+
+   <div class="radio-btns__btn" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image one">
+    <img src="images/Imagen9.png" alt="Image description">
+  </div>
+
+
+</div>
+    </div>
+  </div>
+</section>
+
 
         <!-- ========== ACREDITACIONES ========== -->
         <section class="section acreditaciones" id="acreditaciones">
