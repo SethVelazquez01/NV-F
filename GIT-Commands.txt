@@ -1,0 +1,30 @@
+https://uiverse.io/ - css designs
+animate.css
+
+---------------------------------
+git pull origin main  # Primero actualiza
+git add .            # Agrega tus cambios
+git commit -m "mensaje descriptivo"
+git push origin main
+-----------------------
+
+----------------------------------
+Pasos
+-----------------------------------
+1. Primero, abrir GUI en el archivo del proyecto, despues ejecutar "git init" 
+2. despues conectar con el link del proyecto: "git remote add origin -link-"
+3. Agregar todos los archivos con "git add ."
+4. hacer el primer commit: "git commit -m "primer commit""
+5. Subir el proyecto con: "git push -u origin master (o main si asi lo indica el proyecto)"
+6.Crear rama: 
+6. Cambiar rama: "git checkout login
+
+7. para enviar es con pull
+...............
+Actualizar
+...............
+Antes de subir los archivos, asegurar tener la versión mas reciente del repositorio
+"git pull origin main"
+2. "git add." o "git add archivo1.js" para subir los archivos modificados
+3. git commit -m "Agregar commit"
+4.enviar los archivo al repositorio "git push origin main"
