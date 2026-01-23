@@ -99,26 +99,46 @@ document.addEventListener('DOMContentLoaded', function() {
     // ==========================================
     // CONTACT FORM HANDLING
     // ==========================================
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-            
-            // Log form data (replace with your own logic)
-            console.log('Form submitted:', data);
-            
-            // Show success message (customize this)
-            alert('¡Mensaje enviado! Nos pondremos en contacto pronto.');
-            
-            // Reset form
-            contactForm.reset();
-        });
-    }
+   const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_2gahwtr",
+      "template_6fzx6xg",
+      contactForm
+    ).then(
+      function () {
+        showNotification("Mensaje enviado correctamente ✅");
+        contactForm.reset();
+      },
+      function (error) {
+        console.error("Error:", error);
+        showNotification("Error al enviar el mensaje ❌", true);
+      }
+    );
+  });
+}
+
+function showNotification(message, isError = false) {
+  const notify = document.getElementById("notify");
+
+  notify.querySelector(".notify-text").textContent = message;
+
+  notify.classList.remove("error");
+  if (isError) notify.classList.add("error");
+
+  notify.classList.add("show");
+
+  setTimeout(() => {
+    notify.classList.remove("show");
+  }, 3500);
+}
+
+  
+
     
     
     // ==========================================
